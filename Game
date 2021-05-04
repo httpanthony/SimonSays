@@ -1,28 +1,72 @@
 //Simon Says
 
 var score = 0;
+var n = random(1, 100);
 
+//Simon Says Color Mode
 var simonSaysColor = function () 
 {
     background(145, 134, 134);
-    var m = millis()%1000;
     textSize(40);
     text("Color Mode", 100, 40);
     text("Score: " + score, 115, 377);
+    
+    //Timer
     textSize(20);
     fill(0, 0, 0);
     text("Time", 333, 24);
     fill(255, 255, 255);
+    var m = millis()%1000;
     text(m, 340, 50);
-    fill(150, 30, 30);
+    
+    //Dark-Red
+    fill(110, 30, 30);
     rect(90,100,100,100);
-    fill(30, 30, 150);
+    
+    //Dark-Blue
+    fill(30, 30, 100);
     rect(210,220,100,100);
+    
+    //Dark-Yellow
     fill(166, 186, 18);
     rect(90,220,100,100);
-    fill(30, 150, 30);
+    
+    //Dark-Green
+    fill(30, 110, 30);
     rect(210,100,100,100);
     
+    //Bright-Red
+    if (n > 1 && n < 25)
+    {
+     fill(255, 0, 0);
+     rect(90,100,100,100); 
+    }
+    
+    //Bright-Blue
+    if (n > 25 && n < 50)
+    {
+     fill(0, 0, 255);
+     rect(210,220,100,100); 
+    }
+    
+    //Bright-Yellow
+    if (n > 50 && n < 75)
+    {
+     fill(255, 255, 0);
+     rect(90,220,100,100); 
+    }
+    
+    //Bright-Green
+    if (n > 75 && n < 100)
+    {
+     fill(0, 255, 0);
+     rect(210,100,100,100);
+    }
+    
+    
+    
 };
+
+
 
 simonSaysColor();
