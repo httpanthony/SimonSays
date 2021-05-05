@@ -10,7 +10,7 @@ var simonSaysColor = function ()
     textSize(40);
     text("Color Mode", 100, 40);
     text("Score: " + score, 115, 377);
-    
+
     //Timer
     textSize(20);
     fill(0, 0, 0);
@@ -68,5 +68,97 @@ var simonSaysColor = function ()
 };
 
 
+var simonSaysKeyboard = function()
+{
+    background(145, 134, 134);
+    textSize(40);
+    text("Keyboard Mode", 45, 40);
+    text("Score: " + score, 115, 377);
+    
+    //Timer
+    textSize(20);
+    fill(0, 0, 0);
+    text("Time", 333, 24);
+    fill(255, 255, 255);
+    var m = millis()%1000;
+    text(m, 340, 50);
+    
+    rect(120, 120, 150, 150);
+    text("letter", 100, 100);
+};
 
-simonSaysColor();
+
+//Simon Says Color Screen
+var simonSaysCover = function ()
+{
+    background(0, 149, 255);
+    var f = createFont("monospace", 50);
+    textFont(f);
+    fill(0, 0, 0);
+    text("Simon Says", 60, 50);
+    
+    var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() {
+    fill(255, 0, 0);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+var btn1 = new Button({
+    x: 115,
+    y: 125,
+    label: "Color Mode",
+    onClick: function() {
+       simonSaysColor();
+    }
+});
+btn1.draw();
+
+
+var btn2 = new Button({
+    x: 115,
+    y: 215,
+    label: "Keyboard Mode",
+    onClick: function() {
+        simonSaysKeyboard();
+    }
+});
+btn2.draw();
+
+
+mouseClicked = function() {
+    btn1.handleMouseClick();
+    btn2.handleMouseClick();
+};
+
+    
+};
+
+simonSaysCover();
+//simonSaysColor();
+//simonSaysKeyboard();
+//println(n);
