@@ -2,14 +2,17 @@
 
 var score = 0;
 var n = random(1, 100);
+var currentScene;
 
 //Simon Says Color Mode
 var simonSaysColor = function () 
 {
+    var drawScene2 = function(){
+    currentScene = 2;
     background(145, 134, 134);
     textSize(40);
     text("Color Mode", 100, 40);
-    text("Score: " + score, 115, 377);
+    text("Score: " + score, 115, 332);
 
     //Timer
     textSize(20);
@@ -62,18 +65,19 @@ var simonSaysColor = function ()
      fill(0, 255, 0);
      rect(210,100,100,100);
     }
-    
+    };  
     
     
 };
 
-
 var simonSaysKeyboard = function()
 {
+var drawScene3 = function() {
+    currentScene = 3;
     background(145, 134, 134);
     textSize(40);
     text("Keyboard Mode", 45, 40);
-    text("Score: " + score, 115, 377);
+    text("Score: " + score, 115, 351);
     
     //Timer
     textSize(20);
@@ -86,17 +90,20 @@ var simonSaysKeyboard = function()
     rect(120, 120, 150, 150);
     text("letter", 100, 100);
 };
-
+};
 
 //Simon Says Color Screen
+
 var simonSaysCover = function ()
 {
+var drawScene1 = function() {
+    currentScene = 1;
     background(0, 149, 255);
     var f = createFont("monospace", 50);
     textFont(f);
     fill(0, 0, 0);
     text("Simon Says", 60, 50);
-    
+};   
     var Button = function(config) {
     this.x = config.x || 0;
     this.y = config.y || 0;
@@ -105,6 +112,7 @@ var simonSaysCover = function ()
     this.label = config.label || "Click";
     this.onClick = config.onClick || function() {};
 };
+
 
 Button.prototype.draw = function() {
     fill(255, 0, 0);
@@ -151,6 +159,13 @@ btn2.draw();
 
 
 mouseClicked = function() {
+    if (currentScene === 1) {
+        drawScene2();
+    } else if (currentScene  === 2){
+        drawScene3();
+    } else if (currentScene === 3) {
+        drawScene1();
+    }
     btn1.handleMouseClick();
     btn2.handleMouseClick();
 };
