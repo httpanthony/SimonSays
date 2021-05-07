@@ -1,5 +1,54 @@
 //Simon Says
-
+var drawBitmoji = function(bodyX,bodyY,bodyHeight){
+    noStroke();
+    fill(0, 0, 0);
+    ellipse(bodyX+(bodyHeight/150),bodyY-(bodyHeight/150*11),bodyHeight/150*83,bodyHeight/150*100);
+    ellipse(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150*10),bodyHeight/150*94,bodyHeight/150*89);
+    fill(175, 110, 81);
+    ellipse(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150),bodyHeight/150*83,bodyHeight/150*100);  //head
+    fill(0, 0, 0);
+    ellipse(bodyX+(bodyHeight/150),bodyY-(bodyHeight/150*35),bodyHeight/150*72,bodyHeight/150*35); // Durag
+    ellipse(bodyX-(bodyHeight/150*32),bodyY-(bodyHeight/150*32),bodyHeight/150*27,bodyHeight/150*23);
+    fill(255, 255, 255);
+    arc(bodyX-(bodyHeight/150*47), bodyY+(bodyHeight/150*6), bodyHeight/150*11, bodyHeight/150*-39, bodyHeight/150*-299, bodyHeight/150*127);  //left chisel
+    arc(bodyX+(bodyHeight/150*46), bodyY+(bodyHeight/150*6), bodyHeight/150*11, bodyHeight/150*-39, bodyHeight/150*-299, bodyHeight/150*117);  //right chisel
+    fill(0, 0, 0);
+    ellipse(bodyX-(bodyHeight/150*14),bodyY+(bodyHeight/150),bodyHeight/150*12,bodyHeight/150*11);  //left eye
+    ellipse(bodyX+(bodyHeight/150*15),bodyY+(bodyHeight/150),bodyHeight/150*13,bodyHeight/150*12);  //right eye
+    stroke(0, 0, 0);
+    fill(175, 110, 81);
+    bezier(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150),bodyX+(bodyHeight/150*21),bodyY+(bodyHeight/150*22),bodyX-(bodyHeight/150*8),bodyY+(bodyHeight/150*20),bodyX-(bodyHeight/150*4),bodyY+(bodyHeight/150*15));  //nose
+    fill(255, 255, 255);  //fill for teeth
+    arc(bodyX+(bodyHeight/150*2),bodyY+(bodyHeight/150*30),bodyHeight/150*28,bodyHeight/150*14,bodyHeight/150*-2,bodyHeight/150*183);  //nouth
+    line(bodyX-(bodyHeight/150*12),bodyY+(bodyHeight/150*29),bodyX+(bodyHeight/150*15),bodyY+(bodyHeight/150*29));  //top of mouth
+    fill(0, 0, 0); 
+    fill(232, 218, 181); //shirt color
+    stroke(0, 0, 0);
+    rect(bodyX-(bodyHeight/150*46),bodyY+(bodyHeight/150*57), bodyHeight/150*90, bodyHeight/150*99); //shirt
+    noStroke();
+    rect(bodyX-(bodyHeight/150*45), bodyY+(bodyHeight/150*55), bodyHeight/150*89, bodyHeight/150*98);
+    ellipse(bodyX-(bodyHeight/150*45),bodyY+(bodyHeight/150*70),bodyHeight/150*33,bodyHeight/150*30);
+    ellipse(bodyX+(bodyHeight/150*43),bodyY+(bodyHeight/150*70),bodyHeight/150*33,bodyHeight/150*30);
+    rect(bodyX-(bodyHeight/150*60), bodyY+(bodyHeight/150*72), bodyHeight/150*20, bodyHeight/150*61);
+    rect(bodyX+(bodyHeight/150*39), bodyY+(bodyHeight/150*72), bodyHeight/150*20, bodyHeight/150*61);
+    stroke(0, 0, 0);
+    fill(175, 110, 81);
+    ellipse(bodyX-(bodyHeight/150*50),bodyY+(bodyHeight/150*136),bodyHeight/150*20,bodyHeight/150*11);  //hands
+    ellipse(bodyX+(bodyHeight/150*53),bodyY+(bodyHeight/150*136),bodyHeight/150*20,bodyHeight/150*11);  //hands
+    line(bodyX-(bodyHeight/150*57), bodyY+(bodyHeight/150*132), bodyX-(bodyHeight/150*59), bodyY+(bodyHeight/150*66));  //left sleeve
+    line(bodyX+(bodyHeight/150*59), bodyY+(bodyHeight/150*132), bodyX+(bodyHeight/150*59), bodyY+(bodyHeight/150*66));  //left sleeve
+    line(bodyX-(bodyHeight/150*42), bodyY+(bodyHeight/150*132), bodyX-(bodyHeight/150*42), bodyY+(bodyHeight/150*99));  //right sleeve
+    line(bodyX+(bodyHeight/150*46), bodyY+(bodyHeight/150*132), bodyX+(bodyHeight/150*45), bodyY+(bodyHeight/150*92));  //right sleeve
+    line(bodyX-(bodyHeight/150*7), bodyY+(bodyHeight/150*107), bodyX-(bodyHeight/150*18), bodyY+(bodyHeight/150*70));  //A initial
+    line(bodyX-(bodyHeight/150*27), bodyY+(bodyHeight/150*107), bodyX-(bodyHeight/150*18), bodyY+(bodyHeight/150*70));  //A initial
+    line(bodyX-(bodyHeight/150*11), bodyY+(bodyHeight/150*90), bodyX-(bodyHeight/150*24), bodyY+(bodyHeight/150*90));  //A initial
+    line(bodyX+(bodyHeight/150*21), bodyY+(bodyHeight/150*73), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*73));  // S initial
+    line(bodyX+(bodyHeight/150*3), bodyY+(bodyHeight/150*83), bodyX+(bodyHeight/150*3), bodyY+(bodyHeight/150*73));  // S initial
+    line(bodyX+(bodyHeight/150*21), bodyY+(bodyHeight/150*84), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*84));  // S initial
+    line(bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*84), bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*103));  // S initial
+    line(bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*104), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*104));  // S initial
+}; //bitmoji
+    
 var score = 0;
 var n = random(1, 100);
 
@@ -9,7 +58,7 @@ var simonSaysColor = function ()
     background(145, 134, 134);
     textSize(40);
     text("Color Mode", 100, 40);
-    text("Score: " + score, 115, 377);
+    text("Score: " + score, 115, 347);
 
     //Timer
     textSize(20);
@@ -73,7 +122,7 @@ var simonSaysKeyboard = function()
     background(145, 134, 134);
     textSize(40);
     text("Keyboard Mode", 45, 40);
-    text("Score: " + score, 115, 377);
+    text("Score: " + score, 115, 332);
     
     //Timer
     textSize(20);
@@ -96,6 +145,7 @@ var simonSaysCover = function ()
     textFont(f);
     fill(0, 0, 0);
     text("Simon Says", 60, 50);
+    drawBitmoji(46,316,73);
     
     var Button = function(config) {
     this.x = config.x || 0;
@@ -162,3 +212,5 @@ simonSaysCover();
 //simonSaysColor();
 //simonSaysKeyboard();
 //println(n);
+
+
