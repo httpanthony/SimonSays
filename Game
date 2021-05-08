@@ -1,23 +1,145 @@
 //Simon Says
 
+//Anthony Bitmoji
+var drawBitmoji = function(bodyX,bodyY,bodyHeight){
+    noStroke();
+    fill(0, 0, 0);
+    ellipse(bodyX+(bodyHeight/150),bodyY-(bodyHeight/150*11),bodyHeight/150*83,bodyHeight/150*100);
+    ellipse(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150*10),bodyHeight/150*94,bodyHeight/150*89);
+    fill(175, 110, 81);
+    ellipse(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150),bodyHeight/150*83,bodyHeight/150*100);  //head
+    fill(0, 0, 0);
+    ellipse(bodyX+(bodyHeight/150),bodyY-(bodyHeight/150*35),bodyHeight/150*72,bodyHeight/150*35); // Durag
+    ellipse(bodyX-(bodyHeight/150*32),bodyY-(bodyHeight/150*32),bodyHeight/150*27,bodyHeight/150*23);
+    fill(255, 255, 255);
+    arc(bodyX-(bodyHeight/150*47), bodyY+(bodyHeight/150*6), bodyHeight/150*11, bodyHeight/150*-39, bodyHeight/150*-299, bodyHeight/150*127);  //left chisel
+    arc(bodyX+(bodyHeight/150*46), bodyY+(bodyHeight/150*6), bodyHeight/150*11, bodyHeight/150*-39, bodyHeight/150*-299, bodyHeight/150*117);  //right chisel
+    fill(0, 0, 0);
+    ellipse(bodyX-(bodyHeight/150*14),bodyY+(bodyHeight/150),bodyHeight/150*12,bodyHeight/150*11);  //left eye
+    ellipse(bodyX+(bodyHeight/150*15),bodyY+(bodyHeight/150),bodyHeight/150*13,bodyHeight/150*12);  //right eye
+    stroke(0, 0, 0);
+    fill(175, 110, 81);
+    bezier(bodyX+(bodyHeight/150),bodyY+(bodyHeight/150),bodyX+(bodyHeight/150*21),bodyY+(bodyHeight/150*22),bodyX-(bodyHeight/150*8),bodyY+(bodyHeight/150*20),bodyX-(bodyHeight/150*4),bodyY+(bodyHeight/150*15));  //nose
+    fill(255, 255, 255);  //fill for teeth
+    arc(bodyX+(bodyHeight/150*2),bodyY+(bodyHeight/150*30),bodyHeight/150*28,bodyHeight/150*14,bodyHeight/150*-2,bodyHeight/150*183);  //nouth
+    line(bodyX-(bodyHeight/150*12),bodyY+(bodyHeight/150*29),bodyX+(bodyHeight/150*15),bodyY+(bodyHeight/150*29));  //top of mouth
+    fill(0, 0, 0); 
+    fill(232, 218, 181); //shirt color
+    stroke(0, 0, 0);
+    rect(bodyX-(bodyHeight/150*46),bodyY+(bodyHeight/150*57), bodyHeight/150*90, bodyHeight/150*99); //shirt
+    noStroke();
+    rect(bodyX-(bodyHeight/150*45), bodyY+(bodyHeight/150*55), bodyHeight/150*89, bodyHeight/150*98);
+    ellipse(bodyX-(bodyHeight/150*45),bodyY+(bodyHeight/150*70),bodyHeight/150*33,bodyHeight/150*30);
+    ellipse(bodyX+(bodyHeight/150*43),bodyY+(bodyHeight/150*70),bodyHeight/150*33,bodyHeight/150*30);
+    rect(bodyX-(bodyHeight/150*60), bodyY+(bodyHeight/150*72), bodyHeight/150*20, bodyHeight/150*61);
+    rect(bodyX+(bodyHeight/150*39), bodyY+(bodyHeight/150*72), bodyHeight/150*20, bodyHeight/150*61);
+    stroke(0, 0, 0);
+    fill(175, 110, 81);
+    ellipse(bodyX-(bodyHeight/150*50),bodyY+(bodyHeight/150*136),bodyHeight/150*20,bodyHeight/150*11);  //hands
+    ellipse(bodyX+(bodyHeight/150*53),bodyY+(bodyHeight/150*136),bodyHeight/150*20,bodyHeight/150*11);  //hands
+    line(bodyX-(bodyHeight/150*57), bodyY+(bodyHeight/150*132), bodyX-(bodyHeight/150*59), bodyY+(bodyHeight/150*66));  //left sleeve
+    line(bodyX+(bodyHeight/150*59), bodyY+(bodyHeight/150*132), bodyX+(bodyHeight/150*59), bodyY+(bodyHeight/150*66));  //left sleeve
+    line(bodyX-(bodyHeight/150*42), bodyY+(bodyHeight/150*132), bodyX-(bodyHeight/150*42), bodyY+(bodyHeight/150*99));  //right sleeve
+    line(bodyX+(bodyHeight/150*46), bodyY+(bodyHeight/150*132), bodyX+(bodyHeight/150*45), bodyY+(bodyHeight/150*92));  //right sleeve
+    line(bodyX-(bodyHeight/150*7), bodyY+(bodyHeight/150*107), bodyX-(bodyHeight/150*18), bodyY+(bodyHeight/150*70));  //A initial
+    line(bodyX-(bodyHeight/150*27), bodyY+(bodyHeight/150*107), bodyX-(bodyHeight/150*18), bodyY+(bodyHeight/150*70));  //A initial
+    line(bodyX-(bodyHeight/150*11), bodyY+(bodyHeight/150*90), bodyX-(bodyHeight/150*24), bodyY+(bodyHeight/150*90));  //A initial
+    line(bodyX+(bodyHeight/150*21), bodyY+(bodyHeight/150*73), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*73));  // S initial
+    line(bodyX+(bodyHeight/150*3), bodyY+(bodyHeight/150*83), bodyX+(bodyHeight/150*3), bodyY+(bodyHeight/150*73));  // S initial
+    line(bodyX+(bodyHeight/150*21), bodyY+(bodyHeight/150*84), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*84));  // S initial
+    line(bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*84), bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*103));  // S initial
+    line(bodyX+(bodyHeight/150*22), bodyY+(bodyHeight/150*104), bodyX+(bodyHeight/150*2), bodyY+(bodyHeight/150*104));  // S initial
+}; //bitmoji
+
+//Derwin Bitmoji
+var bitmojiX = 205;
+var bitmojiY = 185;
+
+var drawHair1 = function(){
+    //Hair
+    fill(0, 0, 0);
+    ellipse(bitmojiX+107, bitmojiY+115, 73, 63);  
+};
+
+var drawBHF1 = function(){
+    //Body, Head and Face 1
+    fill(196, 33, 33);
+    noStroke();
+    quad(bitmojiX+41, bitmojiY+208, bitmojiX+107, bitmojiY+205, bitmojiX+108, bitmojiY    +172, bitmojiX+69, bitmojiY+164);
+    quad(bitmojiX+171, bitmojiY+208, bitmojiX+107, bitmojiY+205, bitmojiX+107, bitmojiY    +172, bitmojiX+149, bitmojiY+165);
+};
+
+var drawBHF2 = function(){
+    //Body, Head and Face 2
+    stroke(0, 0, 0);
+    fill(156, 100, 50);
+    ellipse(bitmojiX+107, bitmojiY+135, 67, 73);
+    fill(255, 255, 255);
+    arc(bitmojiX+108, bitmojiY+150, 40, 20, 0, 180);
+    line(bitmojiX+88, bitmojiY+150, bitmojiX+127, bitmojiY+150);
+    fill(156, 100, 50);
+    bezier(bitmojiX+110, bitmojiY+125, bitmojiX+144, bitmojiY+182, bitmojiX+26,           bitmojiY+97, bitmojiX+124, bitmojiY+135);
+};
+
+var drawInitials = function(){
+    //Initials
+    fill(0, 0, 0);
+    textSize(33);
+    text("DB", bitmojiX+88, bitmojiY+170);    
+};
+
+var drawHair2 = function(){
+    //Hair 2
+    fill(0, 0, 0);
+    ellipse(bitmojiX+105, bitmojiY+99, 53, 13);
+};
+
+var drawGlasses = function(){
+    //Glasses
+    ellipse(bitmojiX+91, bitmojiY+128, 26, 15);
+    ellipse(bitmojiX+123, bitmojiY+128, 26, 15);
+    line(bitmojiX+103, bitmojiY+127, bitmojiX+110, bitmojiY+127);
+    line(bitmojiX+73, bitmojiY+120, bitmojiX+77, bitmojiY+127);
+    line(bitmojiX+136, bitmojiY+129, bitmojiX+140, bitmojiY+119);
+};
+
+var drawEyes = function(){
+    //eyes
+    fill(156, 100, 50);
+    ellipse(bitmojiX+91, bitmojiY+128, 25, 14);
+    ellipse(bitmojiX+123, bitmojiY+128, 25, 14);
+    fill(255, 255, 255);
+    ellipse(bitmojiX+91, bitmojiY+128, 11, 10);
+    ellipse(bitmojiX+123, bitmojiY+128, 11, 10);
+    fill(0, 0, 0);
+    ellipse(bitmojiX+91, bitmojiY+128, 3, 3);
+    ellipse(bitmojiX+123, bitmojiY+128, 3, 3);
+};
+
+var drawDBitmoji = function(){
+    drawHair1();
+    drawBHF1();
+    drawBHF2();
+    drawInitials();
+    drawHair2();
+    drawGlasses();
+    drawEyes();
+};
+    
+drawDBitmoji();    
+
+frameRate(1);
+var currentScene;
 var score = 0;
-var n = random(1, 100);
 
 //Simon Says Color Mode
 var simonSaysColor = function () 
 {
+    currentScene = 2;
+    
+    var n = random(1, 100);
+    
     background(145, 134, 134);
-    textSize(40);
-    text("Color Mode", 100, 40);
-    text("Score: " + score, 115, 377);
-
-    //Timer
-    textSize(20);
-    fill(0, 0, 0);
-    text("Time", 333, 24);
-    fill(255, 255, 255);
-    var m = millis()%1000;
-    text(m, 340, 50);
     
     //Dark-Red
     fill(110, 30, 30);
@@ -40,13 +162,15 @@ var simonSaysColor = function ()
     {
      fill(255, 0, 0);
      rect(90,100,100,100); 
+     playSound(getSound("retro/laser1"));
     }
     
     //Bright-Blue
     if (n > 25 && n < 50)
     {
      fill(0, 0, 255);
-     rect(210,220,100,100); 
+     rect(210,220,100,100);
+     playSound(getSound("retro/laser2"));
     }
     
     //Bright-Yellow
@@ -54,6 +178,7 @@ var simonSaysColor = function ()
     {
      fill(255, 255, 0);
      rect(90,220,100,100); 
+     playSound(getSound("retro/laser3"));
     }
     
     //Bright-Green
@@ -61,19 +186,46 @@ var simonSaysColor = function ()
     {
      fill(0, 255, 0);
      rect(210,100,100,100);
+     playSound(getSound("retro/laser4"));
     }
+    
+    //Title and Score counter
+    textSize(40);
+    text("Color Mode", 100, 40);
+    text("Score: " + score, 115, 347);
     
     
     
 };
 
+//Draw function for color mode
+draw = function() {
+    if (currentScene === 2)
+    {
+    simonSaysColor();
+    }
+};
 
+//MouseClciked function for colored squares
+mouseClicked = function () 
+{
+    if (mouseX > 0 || mouseX < 400 && mouseY > 0 || mouseY < 400 && currentScene === 2)
+    {
+        fill(255, 0, 0);
+        rect(90,100,100,100); 
+        playSound(getSound("retro/laser4"));
+    }
+};
+
+//Simon says keyboard mode
 var simonSaysKeyboard = function()
 {
+    currentScene = 3;
+    
     background(145, 134, 134);
     textSize(40);
     text("Keyboard Mode", 45, 40);
-    text("Score: " + score, 115, 377);
+    text("Score: " + score, 115, 332);
     
     //Timer
     textSize(20);
@@ -91,11 +243,14 @@ var simonSaysKeyboard = function()
 //Simon Says Color Screen
 var simonSaysCover = function ()
 {
+    currentScene = 1;
+    
     background(0, 149, 255);
     var f = createFont("monospace", 50);
     textFont(f);
     fill(0, 0, 0);
     text("Simon Says", 60, 50);
+    drawBitmoji(46,316,73);
     
     var Button = function(config) {
     this.x = config.x || 0;
@@ -123,7 +278,7 @@ Button.prototype.isMouseInside = function() {
 };
 
 Button.prototype.handleMouseClick = function() {
-    if (this.isMouseInside()) {
+    if (this.isMouseInside() && currentScene === 1) {
         this.onClick();
     }
 };
@@ -154,7 +309,8 @@ mouseClicked = function() {
     btn1.handleMouseClick();
     btn2.handleMouseClick();
 };
-
+    
+    drawDBitmoji();
     
 };
 
